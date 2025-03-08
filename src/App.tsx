@@ -44,6 +44,7 @@ const App = () => {
   const [error, setError] = useState<string | null>(null); 
 
   const fetchUsers = async () => {
+    // Fetch users from the API
     try {
       const { data } = await axios.get(API_URL); 
       setUsersState(data); 
@@ -55,7 +56,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    const localData = localStorage.getItem("users");
+    const localData = localStorage.getItem("users"); 
      
     if (!localData) {
       fetchUsers();
@@ -94,7 +95,10 @@ const App = () => {
       return;
     }
 
+    //if editId is not null, the user with the editId will be updated 
+    //if editId is null, this will lead to creation of new user
     if (editId) {
+      //edit user
       const updatedUsers = users.map((user:User) =>
         user.id === editId ? { ...user, ...formState } : user
       );
@@ -102,16 +106,19 @@ const App = () => {
       dispatch(updateUser({ ...formState,id: editId}));
       toast.success("User updated successfully");
     } else {
+      //Add new user
       const newUser = {  ...formState ,id: Date.now()};
       setUsersState([...users, newUser]);
       dispatch(addUser(newUser));
       toast.success("User added successfully");
     }
-    dispatchForm({ type: "RESET" });
+    
+    dispatchForm({ type: "RESET" }); //reset form
     setEditId(null);
     setShowModal(false);
   };
 
+  //delete user
   const handleDelete = useCallback((id:number) => {
     const confrimDelete = window.confirm("Are you sure you want to delete this user?"); //sets a confirmation for a user deletion
     if (!confrimDelete) return; //stops the function
@@ -141,7 +148,7 @@ const App = () => {
     setFilteredUsers(usersFromStore); // Ensure filtered users update when usersFromStore changes
   }, [usersFromStore]);
 
-  // const filteredUsers = useMemo(() => filterUsers(), [filterUsers]);
+
 
   return (
     <div className="container mt-4">
