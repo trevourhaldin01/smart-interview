@@ -1,54 +1,59 @@
-# React + TypeScript + Vite
+# Full CRUD Application with API Integration and Local Storage/Redux
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## <a name="table">Table of Contents</a>
+1. [Introduction](#introduction)
+2. [Tech Stack](#tech_stack)
+3. [Installation](#installation)
 
-Currently, two official plugins are available:
+## <a name="introduction"> Introduction</a>
+This is a <a  href="https://react.dev/">React js</a> apllication that enables full CRUD (Create, Read, Update, Delete) operations on a list of users. The app fetches data from an external API <a>https://jsonplaceholder.typicode.com/users</a> and allows users to perform CRUD operations on this data with the help of redux and local storage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## <a name="tech_stack">Tech Stack</a>
 
-## Expanding the ESLint configuration
+- Nodejs
+- Reactjs with Vite
+- Redux
+- Bootstrap
+- axios
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## <a name="installation">Installation</a>
+
+Follow these steps to set up the project locally on your machine.
+
+**Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+this project was tested on node v20.15
+
+**Cloning the Repository**
+
+```bash
+git clone https://github.com/trevourhaldin01/smart-interview.git
+cd smart-interview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install the project dependencies using npm:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+**Running the Project**
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser or any HTTP client to test the project.
+
+
+
+
+
+
+
+
